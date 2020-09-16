@@ -60,5 +60,10 @@ namespace ExerciseEmployeesApp
             };
             form.Show();
         }
+
+        private void btnAddNewEmployee_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
