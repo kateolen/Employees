@@ -63,7 +63,9 @@ namespace ExerciseEmployeesApp
 
         private void btnAddNewEmployee_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            AddNewEmployee addNewEmployee = new AddNewEmployee();
+            addNewEmployee.Show();
         }
     }
 }
