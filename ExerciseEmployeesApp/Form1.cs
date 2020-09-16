@@ -49,7 +49,8 @@ namespace ExerciseEmployeesApp
             /* Downcast */
             ListBox list = sender as ListBox;
             Employee selectedEmployee = (Employee)list.SelectedItem;
-            
+            UpdateEmployeeForm form = new UpdateEmployeeForm();
+            form.Show();
         }
     }
 }
