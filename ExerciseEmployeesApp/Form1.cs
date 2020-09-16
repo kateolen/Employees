@@ -12,16 +12,18 @@ namespace ExerciseEmployeesApp
 {
     public partial class Form1 : Form
     {
+        DbHandler db;
         public Form1()
         {
             InitializeComponent();
+            db = new DbHandler();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             try
             {
-                DbHandler db = new DbHandler();
+               
                 List<Employee> employees = db.GetEmployees();
                 LoadEmployeesList(employees);
             }
@@ -49,7 +51,13 @@ namespace ExerciseEmployeesApp
             /* Downcast */
             ListBox list = sender as ListBox;
             Employee selectedEmployee = (Employee)list.SelectedItem;
-            UpdateEmployeeForm form = new UpdateEmployeeForm();
+            this.Hide();
+            UpdateEmployeeForm form = new UpdateEmployeeForm(selectedEmployee);
+            form.FormClosed += (s, args) => {
+                List<Employee> employees = db.GetEmployees();
+                LoadEmployeesList(employees);
+                this.Show();
+            };
             form.Show();
         }
     }
