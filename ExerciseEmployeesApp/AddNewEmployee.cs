@@ -46,12 +46,14 @@ namespace ExerciseEmployeesApp
             cmbProject.ValueMember = "ProjectId";
             cmbProject.DataSource = projects;
             cmbProject.SelectedValue = emp.ProjectId;
+            cmbProject.Text = "Please Select";
 
             List<Department> dept = db.GetDepartments();
             cmbDepartment.DisplayMember = "DepartmentName";
             cmbDepartment.ValueMember = "DepartmentId";
             cmbDepartment.DataSource = dept;
             cmbDepartment.SelectedValue = emp.DepartmentId;
+            cmbDepartment.Text = "Please Select";
 
         }
 

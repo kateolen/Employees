@@ -94,6 +94,8 @@
             // cmbDepartment
             // 
             this.cmbDepartment.FormattingEnabled = true;
+            this.cmbDepartment.Items.AddRange(new object[] {
+            "Please Select"});
             this.cmbDepartment.Location = new System.Drawing.Point(249, 129);
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(224, 24);
