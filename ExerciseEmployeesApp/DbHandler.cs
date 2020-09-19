@@ -45,12 +45,12 @@ namespace ExerciseEmployeesApp
             return employees;
         }
 
-        internal void SaveEmployee(Employee employees)
+        public void SaveEmployee(Employee employees)
         {
             string[] nameArray = employees.Name.Split(' ');
             using (SqlConnection connection = new SqlConnection(connString))
             {
-                using (SqlCommand cmd = new SqlCommand("sp_AddEmployee", connection))
+                using (SqlCommand cmd = new SqlCommand("sp_AddNewEmployee", connection))
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     connection.Open();
@@ -59,7 +59,6 @@ namespace ExerciseEmployeesApp
                     cmd.Parameters.AddWithValue("@DepartmentId", employees.DepartmentId);
                     cmd.Parameters.AddWithValue("@ProjectId", employees.ProjectId);
                     cmd.Parameters.AddWithValue("@Job", employees.Job);
-                    cmd.Parameters.AddWithValue("@EmployeeId", employees.EmployeeId).Direction = System.Data.ParameterDirection.Output;
                     cmd.ExecuteNonQuery();
                 }
             }

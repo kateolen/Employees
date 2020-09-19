@@ -32,6 +32,9 @@ namespace ExerciseEmployeesApp
             employees.Job = txtJob.Text;
             db.SaveEmployee(employees);
 
+            MessageBox.Show("New Employee Was Saved Succesfully!");
+            this.Close();
+
 
         }
 
